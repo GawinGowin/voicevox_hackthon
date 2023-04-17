@@ -31,7 +31,7 @@ def playWav(file):
         play_obj.wait_done()
 
 # テスト用　いらない時はコメントアウト
-
-#makeWav("こんにちは！ずんだもんです", 42)
+if __name__=="__main__":
+    makeWav("こんにちは！ずんだもんです", 1)
 #playWav(os.path.join(basedir,"wav/answer.wav"))
 

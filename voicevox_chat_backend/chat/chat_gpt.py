@@ -41,3 +41,6 @@ def callChatGPT(reply_text, role_text_file, past_messages_list):
     
     # ChatGPTからの回答とpast_message_listをreturn
     return completion["choices"][0]["message"]["content"], past_messages_list
+
+if __name__=="__main__":
+    a = callChatGPT("こんにちは", "/home/voicevox_hackthon/voicevox_chat_backend/chat/role_text/zundamon.txt", [])
