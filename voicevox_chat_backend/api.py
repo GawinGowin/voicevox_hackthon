@@ -9,7 +9,7 @@ from api_helper import return_roleText
 
 load_dotenv()
 
-path = os.environ.get('PYTHONPATH')
+debug = True if os.getenv("DEBUG").lower() == "true" else False
 
 basedir = os.path.dirname(__file__)
 app = Flask(__name__)
@@ -24,7 +24,6 @@ def api():
     global past_messages_list
     global Global_speakerID 
     speaker_ID = Global_speakerID
-    
     
     if request.method == "POST":
         try:
@@ -91,8 +90,6 @@ def change_chara():
             res = "エラーなのだ。もう一度内容を入力してほしいのだ"
             response = {'result':res}
             return jsonify(response)
-        
-        
 
     else:
         Global_speakerID = default_ID 
@@ -100,4 +97,4 @@ def change_chara():
         print(speaker_ID)
         return jsonify({"speaker_ID":speaker_ID})
 
-app.run()
+app.run(debug=debug, host='0.0.0.0', port=5000)
