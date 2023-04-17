@@ -30,9 +30,7 @@ def api():
         try:
             data = request.get_json()
             text = data['post_text']
-            # if past_messages_list==[]:
-                # text = attention + text
-            
+
             answer = callChatGPT(
                 text,
                 return_roleText(speaker_ID),
@@ -42,7 +40,6 @@ def api():
             print(text)
 
             res = answer[0]
-            # playWav(makeWav(res, speaker_ID))
             wavfile = makeWav(res, speaker_ID)
             
             response = {'result':res, 'audio_file_name':wavfile}
@@ -58,8 +55,6 @@ def api():
     else:
         print("こんにちは")
         past_messages_list = []
-        # shutil.rmtree("/home/voicevox_hackthon/voicevox_chat_backend/chat/wav")
-        # os.mkdir("chat/wav")
         return jsonify({"speaker_ID":speaker_ID})
 
 @app.route('/audio', methods=['POST'])
