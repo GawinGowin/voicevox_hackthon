@@ -17,6 +17,8 @@
 <img src=readme_img/map.png height=400/>
 </p>
 
+[VOICEVOX/voicevox_engine](https://github.com/VOICEVOX/voicevox_engine)
+
 <hr>
 
 # Devcontainer Usage
