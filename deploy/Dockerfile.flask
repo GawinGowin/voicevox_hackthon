@@ -1,0 +1,25 @@
+FROM python:3.9
+
+ENV GIT_URL https://github.com/GawinGowin/voicevox_hackthon
+ENV REPONAME voicevox_hackthon
+
+RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends \
+    git python3 python3-pip python3-dev libasound2-dev
+
+WORKDIR /home
+RUN git clone $GIT_URL
+
+WORKDIR /home/$REPONAME/voicevox_chat_backend
+
+COPY ./requirements.txt ./
+RUN pip3 install --no-cache-dir install --upgrade pip && \
+    pip3 --disable-pip-version-check --no-cache-dir install --user -r ./requirements.txt
+RUN rm ./requirements.txt
+
+COPY ./.env ./
+EXPOSE 5000
+
+COPY ./entrypoint-flask.sh ./
+RUN chmod +x ./entrypoint-flask.sh
+
+ENTRYPOINT ["./entrypoint-flask.sh"]

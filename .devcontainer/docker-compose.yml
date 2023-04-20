@@ -1,0 +1,34 @@
+version: '3.8'
+name: hackathon-work-container
+services:
+  react:
+    container_name: develop-container
+    build: 
+      dockerfile: Dockerfile
+    ports:
+      - 127.0.0.1:3000:3000
+      - 127.0.0.1:5000:5000
+    volumes:
+      - .:/workspace:cached
+      - home:/home
+    depends_on:
+      - voicevox
+    networks:
+      - hackathon-network
+
+  voicevox:
+    image: voicevox/voicevox_engine:cpu-ubuntu20.04-latest
+    container_name: voicevox-container
+    ports:
+      - 127.0.0.1:50021:50021
+    volumes: 
+      - voicevox-volumes:/voicevox-volumes
+    networks:
+      - hackathon-network
+
+volumes:
+  home:
+  voicevox-volumes:
+
+networks:
+  hackathon-network:
