@@ -1,8 +1,5 @@
 # Getting Started with Create React App
 
-## Dev Container
-https://github.com/GawinGowin/devcontainer_voicevox_hackthon
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -71,3 +68,29 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+<hr>
+# Devcontainer Usage
+
+## 1. Clone this Repo
+~~~sh
+$ git clone https://github.com/GawinGowin/devcontainer_voicevox_hackthon
+~~~
+
+## 2. Open this Repo with VScode
+![screen](/readme_img/screenshot.png)
+
+
+## 3. Build Dev Containers
+・Click the `Reopen in Container`
+
+![screen](/readme_img/button.png)
+
+OR
+
+・Using [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) command : 
+~~~
+Dev Containers: Rebuild and Reopen in Container
+~~~
+
+[`Ctrl` + `Shift` + `P`] => search "`build`"
