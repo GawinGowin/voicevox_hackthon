@@ -25,7 +25,7 @@
 
 ## 1. Clone this Repo
 ~~~sh
-https://github.com/GawinGowin/voicevox_hackthon
+git clone https://github.com/GawinGowin/voicevox_hackthon
 ~~~
 
 ## 2. Open this Repo with VScode
