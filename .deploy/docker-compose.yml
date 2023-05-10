@@ -1,9 +1,9 @@
 version: '3.8'
-name: hackathon-work-container
 services:
   frontend:
     container_name: react-container
     build: 
+      context: .
       dockerfile: Dockerfile.react
     expose:
       - "3000"
@@ -17,6 +17,7 @@ services:
   backend:
     container_name: flask-container
     build: 
+      context: .
       dockerfile: Dockerfile.flask
     expose:
       - "5000"
