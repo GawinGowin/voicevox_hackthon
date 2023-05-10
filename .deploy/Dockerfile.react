@@ -1,0 +1,21 @@
+FROM node:19
+
+ENV GIT_URL https://github.com/GawinGowin/voicevox_hackthon
+ENV REPONAME voicevox_hackthon
+
+RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends \
+    git
+
+WORKDIR /home
+RUN git clone $GIT_URL
+
+WORKDIR /home/$REPONAME/voicevox-chat-front
+RUN npm install
+RUN npm install -g serve
+RUN npm install http-proxy-middleware --save-dev
+EXPOSE 3000
+
+COPY ./entrypoint-react.sh ./
+RUN chmod +x ./entrypoint-react.sh
+
+ENTRYPOINT ["./entrypoint-react.sh"]
